@@ -12,8 +12,8 @@ class Main extends Component {
 
   handleMarkdownInput = (e) => {
     this.setState({
-      markdown: e.target.value,
-      html: this.handleConversion(e.target.value),
+      markdown: e,
+      html: this.handleConversion(e),
     });
   };
 
@@ -30,15 +30,34 @@ class Main extends Component {
     });
   };
 
+  readfile = (e) => {
+    console.log(e.target.result);
+    this.handleMarkdownInput(e.target.result);
+  };
+
+  load = (e) => {
+    let uploaded = e.target.files[0];
+    if (uploaded.name.slice(-3) === ".md") {
+      let reader = new FileReader();
+      reader.addEventListener("load", this.readfile);
+      reader.readAsText(uploaded);
+    } else {
+      alert("You must load a .md or .txt file! ");
+    }
+    return;
+  };
+
   render() {
     return (
       <section className="main">
         <div className="row">
           <div className="col-lg-6">
             <MarkdownInput
+              markdown={this.state.markdown}
               handleMarkdownInput={this.handleMarkdownInput}
               handleConversion={this.handleConversion}
               downloadFile={this.downloadFile}
+              load={this.load}
               dlLink={this.state.dlLink}
             />
           </div>

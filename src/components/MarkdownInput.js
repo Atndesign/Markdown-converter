@@ -7,13 +7,14 @@ class MarkdownInput extends Component {
       <div className="markdown">
         <h2 className="markdown__title">Markdown</h2>
         <textarea
-          onInput={(e) => this.props.handleMarkdownInput(e)}
+          value={this.props.markdown}
+          onChange={(e) => this.props.handleMarkdownInput(e.target.value)}
           id=""
           cols="30"
           rows="10"
           className="markdown__text"
         ></textarea>
-        <input onChange={(e) => this.props.load()} type="file" name="" id="" />
+        <input onChange={(e) => this.props.load(e)} type="file" name="" id="" />
         <a
           className="btn btn-primary"
           href={this.props.dlLink}
