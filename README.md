@@ -6,7 +6,7 @@ Markdown-converter is a react based project, made in a simple purpose wich is to
 
 ## How to use it?
 
-Just follow this [link](https://atndesign.github.io/markdown-converter/) .
+Just follow this [link](https://atndesign.github.io/Markdown-converter/) .
 
 You can save the md as an .md file
 but you also can load a .md file
