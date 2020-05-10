@@ -1,0 +1,64 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./_partials/fonts";
+@import "./_partials/variables";
+@import "./_partials/responsive.scss";
+@import "./_partials/responsiveClasses.scss";
+
+//Default
+a,
+p,
+h1,
+h2,
+label {
+    font-family: $font-family-base;
+}
+
+body {
+    background-image: url("../img/bg.png");
+    padding: $spacer * 2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+//Components
+@import "./components/edit.scss";
+@import "./components/preview.scss";
+
+//Common
+
+.note_list,
+.markdown-edit,
+.preview {
+    color: white;
+    background-color: rgba(39, 39, 39, .9);
+    padding: $spacer * 2;
+    height: 90vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        appearance: none;
+        background-color: transparent;
+    }
+}
+
+.top-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacer * 2;
+
+    .top-controls__btn {
+        background-color: $primary;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 0 $spacer * 2;
+        padding: $spacer /2 $spacer * 2;
+
+        &.--danger {
+            background-color: #FF3939;
+        }
+    }
+}
